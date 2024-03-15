@@ -10,6 +10,9 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   //   return res.status(err.statusCode).json({ msg: err.message })
   // }
 
+
+    // add some comments 
+
   if (err.name === 'ValidationError') {
     customError.msg = Object.values(err.errors)
       .map((item) => item.message)
@@ -27,7 +30,11 @@ const errorHandlerMiddleware = (err, req, res, next) => {
     customError.statusCode = 404
   }
 
+    // add some comments 
+
   return res.status(customError.statusCode).json({ msg: customError.msg })
 }
+
+  // add some comments 
 
 module.exports = errorHandlerMiddleware
